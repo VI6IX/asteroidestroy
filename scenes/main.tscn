@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3ywxnuywqkas"]
+
+[ext_resource type="Texture2D" uid="uid://bwjh8jchtqmkd" path="res://sprites/Checkers.jpg" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dthepradiqjj3" path="res://scenes/PlayerInput.gd" id="2_jyhfs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
+radius = 30.016663
+
+[node name="Main" type="Node2D"]
+
+[node name="Placeholder_Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.33333334)
+texture_repeat = 2
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_sugp2")
+region_enabled = true
+region_rect = Rect2(1, 1, 300000, 300000)
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("Raycast")]
+motion_mode = 1
+up_direction = Vector2(1, 0)
+script = ExtResource("2_jyhfs")
+Raycast = NodePath("RayCast2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="Player"]
+position = Vector2(6, 0)
+scale = Vector2(0.5, 0.574)
+polygon = PackedVector2Array(63, -1, -61, -63, -31, 0, -60, 62)
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(50, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_rnjyy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
