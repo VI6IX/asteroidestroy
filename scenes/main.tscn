@@ -35,7 +35,7 @@ target_position = Vector2(50, 0)
 position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_rnjyy")
 
-[node name="WrapComponent" type="Node" parent="Player" node_paths=PackedStringArray("COMPONENT_PARENT")]
+[node name="WrapComponent" type="Node2D" parent="Player" node_paths=PackedStringArray("COMPONENT_PARENT")]
 script = ExtResource("3_sugp2")
 COMPONENT_PARENT = NodePath("..")
 

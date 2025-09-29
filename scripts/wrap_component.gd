@@ -1,6 +1,8 @@
-extends Node
+extends Node2D
 
 @export var COMPONENT_PARENT : Node2D;
+
+@onready var SCREEN_SIZE = get_viewport_rect().size;
 
 func horizontal_wrap():
 	if COMPONENT_PARENT.position.x > (1152.0 + COMPONENT_PARENT.scale.x):
