@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c0df7pwpghk5t"]
+[gd_scene load_steps=2 format=3 uid="uid://c0df7pwpghk5t"]
+
+[ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroid.gd" id="1_akfqu"]
 
 [node name="Asteroid" type="RigidBody2D"]
+script = ExtResource("1_akfqu")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(0, 18, -19, 14, -29, -10, -7, -35, 18, -31, 34, -2, 29, 10)
