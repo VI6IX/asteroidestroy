@@ -14,6 +14,11 @@ region_enabled = true
 region_rect = Rect2(1, 1, 300000, 300000)
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
+PAN_SPEED = 5.0
+ACCELERATION = Vector2(0, 0)
+THRUST_FORCE = 800.0
+MAX_SPEED = 800.0
+DECELERATION_RATE = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)

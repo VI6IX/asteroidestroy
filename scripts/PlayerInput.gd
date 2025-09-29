@@ -1,5 +1,7 @@
 extends CharacterBody2D
 @export var Raycast : RayCast2D;
+@onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
+
 @export var PAN_SPEED : float = 5;
 @export var ACCELERATION : Vector2;
 @export var THRUST_FORCE : float = 800;
@@ -25,19 +27,18 @@ func thrust(delta):
 	if Input.is_action_pressed("thrust"):
 		ACCELERATION = transform.x * THRUST_FORCE * delta;
 		velocity += ACCELERATION;
+		particles_thrust.set_emitting(true);
 		if velocity.length() >= MAX_SPEED:
 			velocity = velocity.limit_length(MAX_SPEED);
 
 func decelerate():
 	if !Input.is_action_pressed("thrust"):
 		velocity = velocity.move_toward(Vector2.ZERO, DECELERATION_RATE);
+		particles_thrust.set_emitting(false);
 
 func shoot() -> void:
 	if Input.is_action_pressed("shoot"):
 		print("shoot input pressed")
-
-func _ready() -> void:
-	pass
 
 func _process(delta: float) -> void:
 	pan(delta);

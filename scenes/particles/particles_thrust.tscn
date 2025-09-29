@@ -1,24 +1,26 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0hbky5vy6dgi"]
 
 [sub_resource type="Curve" id="Curve_vowr8"]
-_data = [Vector2(0, 0.6), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 0.8), -1.131579, 0.0, 0, 0]
+_data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.4, 0.8), -1.131579, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_enabled = true
 
 [node name="particle_thrust" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
 amount = 30
-lifetime = 0.25
-explosiveness = 1.0
+lifetime = 0.5
 randomness = 1.0
 lifetime_randomness = 0.2
 emission_shape = 3
 emission_rect_extents = Vector2(1, 1)
+particle_flag_align_y = true
 direction = Vector2(-1, 0)
 gravity = Vector2(20, 20)
 initial_velocity_max = 200.0
-linear_accel_max = 24.74
+damping_min = 27.385
+damping_max = 56.701
 scale_amount_min = 0.1
 scale_amount_max = 10.0
 scale_amount_curve = SubResource("Curve_vowr8")
