@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dthepradiqjj3" path="res://scenes/PlayerInput.gd" id="2_jyhfs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
-radius = 12.0415945
+radius = 30.016663
 
 [node name="Main" type="Node2D"]
 
@@ -23,15 +23,14 @@ script = ExtResource("2_jyhfs")
 Raycast = NodePath("RayCast2D")
 
 [node name="Polygon2D" type="Polygon2D" parent="Player"]
-position = Vector2(6.314516, -0.18053222)
-scale = Vector2(0.18548387, 0.2129355)
+position = Vector2(6, 0)
+scale = Vector2(0.5, 0.574)
 polygon = PackedVector2Array(63, -1, -61, -63, -31, 0, -60, 62)
 
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
 target_position = Vector2(50, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_rnjyy")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var Raycast : RayCast2D;
 @export var PAN_SPEED : float = 5;
-@export var ACCELERATION : Vector2;
 @export var THRUST_FORCE : float = 800;
 @export var MAX_SPEED : float = 800;
 @export var DECELERATION_RATE : float = 5;
@@ -21,13 +20,9 @@ func pan(delta) -> void:
 	# PAN_SPEED times delta
 	rotation += PAN_DIRECTION * PAN_SPEED * delta;
 
-func thrust(delta):
-	ACCELERATION = Vector2.ZERO;
+func thrust():
 	if Input.is_action_pressed("thrust"):
-		ACCELERATION = transform.x * THRUST_FORCE * delta;
-		velocity += ACCELERATION;
-		if velocity.length() >= MAX_SPEED:
-			velocity = velocity.limit_length(MAX_SPEED);
+		velocity = transform.x * THRUST_FORCE;
 
 func decelerate():
 	if !Input.is_action_pressed("thrust"):
@@ -42,8 +37,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pan(delta);
-	thrust(delta);
+	thrust();
 	decelerate();
 	shoot();
 	move_and_slide();
-	print("Velocity X = " + str(velocity.x) + " | " + " Velocity Y = "+ str(velocity.y) + " | " + "Velocity Magnitude = " + str(velocity.length()));
