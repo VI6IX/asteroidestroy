@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 @export var Raycast : RayCast2D;
 @export var PAN_SPEED : float = 5;
 @export var ACCELERATION : Vector2;
@@ -10,11 +9,11 @@ extends CharacterBody2D
 func pan(delta) -> void:
 	var PAN_DIRECTION : float = 0;
 	if Input.is_action_pressed("pan_Left"):
-		print("pan_Left input pressed");
+		#print("pan_Left input pressed");
 		PAN_DIRECTION -= 1;
 	
 	if Input.is_action_pressed("pan_Right"):
-		print("pan_Right input pressed");
+		#print("pan_Right input pressed");
 		PAN_DIRECTION += 1;
 	
 	# Increments the rotation (under Node2D Transform) by PAN_DIRECTION (-1 or 1) at the rate of
@@ -46,4 +45,3 @@ func _process(delta: float) -> void:
 	decelerate();
 	shoot();
 	move_and_slide();
-	print("Velocity X = " + str(velocity.x) + " | " + " Velocity Y = "+ str(velocity.y) + " | " + "Velocity Magnitude = " + str(velocity.length()));
