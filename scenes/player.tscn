@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://da4a51vt5oopy"]
 
 [ext_resource type="Script" uid="uid://dthepradiqjj3" path="res://scripts/PlayerInput.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/wrap_component.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://b0hbky5vy6dgi" path="res://scenes/particles/particles_thrust.tscn" id="3_qhqgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
@@ -28,5 +28,5 @@ shape = SubResource("CircleShape2D_rnjyy")
 unique_name_in_owner = true
 position = Vector2(-8, 0)
 
-[node name="WrapComponent" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_qhqgy")]
+[node name="Wrap Component" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_qhqgy")]
 COMPONENT_PARENT = NodePath("..")
