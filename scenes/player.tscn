@@ -28,5 +28,5 @@ shape = SubResource("CircleShape2D_rnjyy")
 unique_name_in_owner = true
 position = Vector2(-8, 0)
 
-[node name="Wrap Component" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_qhqgy")]
+[node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_qhqgy")]
 COMPONENT_PARENT = NodePath("..")
