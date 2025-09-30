@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ea2vv836t3ay"]
+
+[ext_resource type="Script" uid="uid://bx2dh0nai4gbg" path="res://scripts/components/wrap_component.gd" id="1_a06cf"]
+
+[node name="WrapComponent" type="Node2D" node_paths=PackedStringArray("COMPONENT_PARENT")]
+script = ExtResource("1_a06cf")
+COMPONENT_PARENT = NodePath("")
