@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroid.gd" id="1_akfqu"]
 
 [node name="Asteroid" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_akfqu")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0, 18, -19, 14, -29, -10, -7, -35, 18, -31, 34, -2, 29, 10)
+polygon = PackedVector2Array(-11, 72, -62, 46, -84, -29, -40, -84, 72, -73, 93, 19, 69, 53)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(3, -8)
-polygon = PackedVector2Array(-21, 22, -31, -2, -9.668229, -26.534145, 14.331771, -22.534145, 30.33177, 4.465854, 25, 17, -2.668229, 25.465855)
+polygon = PackedVector2Array(-64, 52, -85, -20, -42, -74, 68, -63, 88, 27, 64, 59, -15, 78)
