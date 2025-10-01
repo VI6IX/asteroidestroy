@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroid.gd" id="1_akfqu"]
 
-[node name="Asteroid" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Asteroid" type="CharacterBody2D"]
 script = ExtResource("1_akfqu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

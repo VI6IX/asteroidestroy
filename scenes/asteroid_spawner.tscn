@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cobe1su6w6kvs"]
+[gd_scene load_steps=4 format=3 uid="uid://cobe1su6w6kvs"]
 
 [ext_resource type="Script" uid="uid://c3p76xktvxtn8" path="res://scripts/asteroid_spawner.gd" id="1_l5w2k"]
 
@@ -7,6 +7,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1260, -739, 0, 0, 0, 0, 1260, -739, 0, 0, 0, 0, 1260, 773, 0, 0, 0, 0, 1249, 776, 0, 0, 0, 0, -1257, 773, 0, 0, 0, 0, -1260, -739)
 }
 point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_yafkd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -384, 0, 0, 0, 0, 0, 0, -192, 0, 0, 0, 0, 384, 0, 0, 0, 0, 0, 0, 192, 0, 0, 0, 0, -384, 0)
+}
+point_count = 5
 
 [node name="Asteroid Spawner" type="Node2D"]
 script = ExtResource("1_l5w2k")
@@ -22,5 +28,12 @@ curve = SubResource("Curve2D_l5w2k")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
 position = Vector2(-1260, -739)
+
+[node name="TargetPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_yafkd")
+
+[node name="TargetPosition" type="PathFollow2D" parent="TargetPath"]
+position = Vector2(-384, 0)
+rotation = -0.4636476
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

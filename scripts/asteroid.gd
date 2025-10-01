@@ -1,6 +1,4 @@
-extends RigidBody2D
-
-@onready var PLAYER := $"../Player";
+extends CharacterBody2D
 
 func _ready() -> void:
-	position.move_toward(PLAYER.global_position, 1);
+	pass
