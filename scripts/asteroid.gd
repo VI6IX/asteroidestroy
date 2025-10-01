@@ -17,5 +17,5 @@ func _process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free();
-	AsteroidCounter.asteroid_count -= 1;
-	print("Off-screen asteroid destroyed; asteroid count reduced to " + str(AsteroidCounter.asteroid_count));
+	GLOBAL_VARIABLES.asteroid_count -= 1;
+	print("Off-screen asteroid destroyed; asteroid count reduced to " + str(GLOBAL_VARIABLES.asteroid_count));

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4oy33x85kjw0"]
-
-[ext_resource type="Script" uid="uid://b48jpdyqlvpts" path="res://scripts/asteroid_counter.gd" id="1_7riim"]
-
-[node name="Asteroid Counter" type="Node"]
-script = ExtResource("1_7riim")
