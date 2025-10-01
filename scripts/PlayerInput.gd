@@ -17,7 +17,6 @@ func pan(delta) -> void:
 	if Input.is_action_pressed("pan_Right"):
 		#print("pan_Right input pressed");
 		PAN_DIRECTION += 1;
-	
 	# Increments the rotation (under Node2D Transform) by PAN_DIRECTION (-1 or 1) at the rate of
 	# PAN_SPEED times delta
 	rotation += PAN_DIRECTION * PAN_SPEED * delta;
