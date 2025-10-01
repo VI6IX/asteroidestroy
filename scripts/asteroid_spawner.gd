@@ -12,6 +12,7 @@ func Instantiate_Asteroid():
 	var asteroid_instance = ASTEROID.instantiate();
 	SPAWN_LOCATION.progress_ratio = randf();
 	asteroid_instance.position = SPAWN_LOCATION.position;
+	asteroid_instance.rotation = randf_range(-360, 360);
 	add_child(asteroid_instance);
 	pass
 

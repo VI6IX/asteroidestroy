@@ -6,9 +6,10 @@
 gravity_scale = 0.0
 script = ExtResource("1_akfqu")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-11, 72, -62, 46, -84, -29, -40, -84, 72, -73, 93, 19, 69, 53)
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(3, -8)
-polygon = PackedVector2Array(-64, 52, -85, -20, -42, -74, 68, -63, 88, 27, 64, 59, -15, 78)
+polygon = PackedVector2Array(-68, 56, -91, -22, -44, -81, 71, -68, 92, 28, 66, 63, -15, 83)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(91, 19, 70, -72, -39, -84, -83, -29, -61, 45, -12, 70, 67, 51)
+closed = true

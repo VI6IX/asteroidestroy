@@ -1,4 +1,6 @@
 extends RigidBody2D
 
-func _physics_process(_delta: float) -> void:
-	pass
+@onready var PLAYER := $"../Player";
+
+func _ready() -> void:
+	position.move_toward(PLAYER.global_position, 1);

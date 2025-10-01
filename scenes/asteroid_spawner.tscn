@@ -10,7 +10,7 @@ point_count = 6
 
 [node name="Asteroid Spawner" type="Node2D"]
 script = ExtResource("1_l5w2k")
-asteroid_limit = 5
+asteroid_limit = 20
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -21,5 +21,6 @@ scale = Vector2(0.42138073, 0.3933285)
 curve = SubResource("Curve2D_l5w2k")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
+position = Vector2(-1260, -739)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
