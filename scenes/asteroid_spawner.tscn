@@ -16,7 +16,6 @@ point_count = 5
 
 [node name="Asteroid Spawner" type="Node2D"]
 script = ExtResource("1_l5w2k")
-asteroid_limit = 20
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
