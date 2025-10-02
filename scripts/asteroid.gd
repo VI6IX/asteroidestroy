@@ -5,9 +5,6 @@ extends CharacterBody2D
 @export var SPEED : float = 100;
 @export var MAX_SPEED : float = 200;
 
-func Destroy_Offscreen():
-	pass
-
 func _process(delta: float) -> void:
 	if velocity.length() < MAX_SPEED:
 		velocity += transform.x * SPEED * delta;
