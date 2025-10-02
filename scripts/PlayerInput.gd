@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var Raycast : RayCast2D;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
+@onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
 
 @export var PAN_SPEED : float = 5;
 @export var ACCELERATION : Vector2;
@@ -27,6 +28,8 @@ func thrust(delta):
 		ACCELERATION = transform.x * THRUST_FORCE * delta;
 		velocity += ACCELERATION;
 		particles_thrust.set_emitting(true);
+		sfx_thrust.play();
+		#sfx_thrust_pitch_variation();
 		if velocity.length() >= MAX_SPEED:
 			velocity = velocity.limit_length(MAX_SPEED);
 

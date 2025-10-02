@@ -20,10 +20,10 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if GLOBAL_VARIABLES.asteroid_count < GLOBAL_VARIABLES.asteroid_limit:
-		print("Asteroids can be instantiated.");
+		#print("Asteroids can be instantiated.");
 		Instantiate_Asteroid();
 		GLOBAL_VARIABLES.asteroid_count += 1;
-		print("Asteroid Count: " + str(GLOBAL_VARIABLES.asteroid_count));
+		#print("Asteroid Count: " + str(GLOBAL_VARIABLES.asteroid_count));
 	else:
-		print("Asteroid limit reached: asteroids cannot be instantiated.");
+		#print("Asteroid limit reached: asteroids cannot be instantiated.");
 		return
