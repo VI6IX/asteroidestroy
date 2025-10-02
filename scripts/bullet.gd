@@ -1,10 +1,11 @@
-extends CharacterBody2D
+extends Area2D
 
-@export var BULLET_SPEED : float = 2000;
+@export var BULLET_SPEED : float = 1500;
 
-func _process(_delta: float) -> void:
-	if velocity.length() < BULLET_SPEED:
-		velocity = transform.x * BULLET_SPEED;
-	else:
-		velocity = velocity.limit_length(BULLET_SPEED);
-	move_and_slide();
+func _physics_process(delta: float) -> void:
+	position += transform.x * BULLET_SPEED * delta;
+
+
+func _on_timer_timeout() -> void:
+	queue_free();
+	

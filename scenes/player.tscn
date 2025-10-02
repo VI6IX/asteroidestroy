@@ -9,18 +9,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
 radius = 11.045361
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Raycast")]
+[node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 up_direction = Vector2(1, 0)
 script = ExtResource("1_g2els")
-Raycast = NodePath("RayCast2D")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 scale = Vector2(0.18548387, 0.2129355)
 polygon = PackedVector2Array(64.010124, -0.004208574, -55.98988, -55.989937, -39.9945, -0.00065487064, -55.996056, 56.050755)
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(50, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
@@ -38,3 +34,10 @@ stream = ExtResource("4_dqkch")
 
 [node name="sfx_shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qlg0r")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(22, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

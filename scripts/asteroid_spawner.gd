@@ -11,7 +11,6 @@ func Instantiate_Asteroid():
 	SPAWN_LOCATION.progress_ratio = randf();
 	TARGET_POSITION.progress_ratio = randf();
 	asteroid_instance.position = SPAWN_LOCATION.position;
-	asteroid_instance.rotation = randf_range(-360, 360);
 	asteroid_instance.look_at(TARGET_POSITION.global_position);
 	add_child(asteroid_instance);
 

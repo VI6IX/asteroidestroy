@@ -1,13 +1,19 @@
 extends CharacterBody2D
-@export var Raycast : RayCast2D;
+
+@onready var Marker : Marker2D = $Marker2D;
+@onready var timer : Timer = $Timer;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
 @onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
+@onready var BULLET := preload("res://scenes/bullet.tscn");
 
 @export var PAN_SPEED : float = 5;
 @export var ACCELERATION : Vector2;
 @export var THRUST_FORCE : float = 800;
 @export var MAX_SPEED : float = 800;
 @export var DECELERATION_RATE : float = 5;
+@export var FIRE_RATE : float = 0.25;
+
+var can_shoot : bool = true;
 
 func pan(delta) -> void:
 	var PAN_DIRECTION : float = 0;
@@ -38,9 +44,19 @@ func decelerate():
 		velocity = velocity.move_toward(Vector2.ZERO, DECELERATION_RATE);
 		particles_thrust.set_emitting(false);
 
+func instantiate_bullet():
+	var bullet_instance = BULLET.instantiate();
+	owner.add_child(bullet_instance);
+	bullet_instance.transform = Marker.global_transform;
+
 func shoot() -> void:
-	if Input.is_action_pressed("shoot"):
-		print("shoot input pressed")
+	if Input.is_action_pressed("shoot") and can_shoot == true:
+		instantiate_bullet();
+		can_shoot = false;
+		timer.start(FIRE_RATE);
+
+func _ready() -> void:
+	timer.wait_time = FIRE_RATE;
 
 func _process(delta: float) -> void:
 	pan(delta);
@@ -48,3 +64,6 @@ func _process(delta: float) -> void:
 	decelerate();
 	shoot();
 	move_and_slide();
+
+func _on_timer_timeout() -> void:
+	can_shoot = true;
