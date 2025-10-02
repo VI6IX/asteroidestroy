@@ -5,7 +5,5 @@ extends Area2D
 func _physics_process(delta: float) -> void:
 	position += transform.x * BULLET_SPEED * delta;
 
-
 func _on_timer_timeout() -> void:
 	queue_free();
-	

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvpunn86d3pwq"]
+
+[sub_resource type="Curve" id="Curve_mnvwv"]
+_data = [Vector2(0, 0.6741574), 0.0, 0.063363396, 0, 0, Vector2(0.4011628, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="particles_explosion" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 450.0
+initial_velocity_max = 500.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_mnvwv")
