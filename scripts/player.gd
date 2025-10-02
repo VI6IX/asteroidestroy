@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var timer : Timer = $Timer;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
 @onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
+@onready var sfx_shoot : AudioStreamPlayer2D = $sfx_shoot;
 @onready var BULLET := preload("res://scenes/bullet.tscn");
 
 @export var PAN_SPEED : float = 5;
@@ -46,6 +47,9 @@ func decelerate():
 
 func instantiate_bullet():
 	var bullet_instance = BULLET.instantiate();
+	sfx_shoot.set_pitch_scale(randf_range(0.8, 1.5));
+	sfx_shoot.set_volume_db(randf_range(-30, -10));
+	sfx_shoot.play();
 	owner.add_child(bullet_instance);
 	bullet_instance.transform = Marker.global_transform;
 
