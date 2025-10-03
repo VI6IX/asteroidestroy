@@ -23,6 +23,8 @@ polygon = PackedVector2Array(64.010124, -0.004208574, -55.98988, -55.989937, -39
 shape = SubResource("CircleShape2D_rnjyy")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PackedVector2Array(11, 0, -10, -11, -7, 0, -10, 11)
