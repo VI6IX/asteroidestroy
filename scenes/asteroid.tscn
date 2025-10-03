@@ -5,6 +5,11 @@
 [node name="Asteroid" type="CharacterBody2D"]
 script = ExtResource("1_akfqu")
 
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox"]
+polygon = PackedVector2Array(-41, -88, 73, -75, 95, 20, 70, 54, -13, 74, -65, 48, -88, -30)
+
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(91, 19, 70, -72, -39, -84, -83, -29, -61, 45, -12, 70, 67, 51)
 closed = true

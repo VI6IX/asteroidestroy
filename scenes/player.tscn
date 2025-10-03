@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqijtdqs51186" path="res://scenes/components/component_take_damage.tscn" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
-radius = 11.045361
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -20,8 +20,17 @@ scale = Vector2(0.18548387, 0.2129355)
 polygon = PackedVector2Array(64.010124, -0.004208574, -55.98988, -55.989937, -39.9945, -0.00065487064, -55.996056, 56.050755)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_rnjyy")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+polygon = PackedVector2Array(11, 0, -10, -11, -7, 0, -10, 11)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(22, 0)
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="particles_thrust" parent="." instance=ExtResource("3_qhqgy")]
 unique_name_in_owner = true
@@ -38,10 +47,5 @@ stream = ExtResource("4_dqkch")
 
 [node name="sfx_shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qlg0r")
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(22, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
