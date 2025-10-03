@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var PAN_SPEED : float = 5;
 @export var ACCELERATION : Vector2;
 @export var THRUST_FORCE : float = 800;
-@export var MAX_SPEED : float = 800;
 @export var DECELERATION_RATE : float = 5;
 @export var FIRE_RATE : float = 0.25;
 
@@ -36,9 +35,9 @@ func thrust(delta):
 		velocity += ACCELERATION;
 		particles_thrust.set_emitting(true);
 		sfx_thrust.play();
-		#sfx_thrust_pitch_variation();
-		if velocity.length() >= MAX_SPEED:
-			velocity = velocity.limit_length(MAX_SPEED);
+		if velocity.length() >= THRUST_FORCE:
+			# Uses the THRUST_FORCE variable as a clamp
+			velocity = velocity.limit_length(THRUST_FORCE);
 
 func decelerate():
 	if !Input.is_action_pressed("thrust"):
