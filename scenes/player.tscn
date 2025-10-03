@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://da4a51vt5oopy"]
+[gd_scene load_steps=8 format=3 uid="uid://da4a51vt5oopy"]
 
 [ext_resource type="Script" uid="uid://dthepradiqjj3" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://b0hbky5vy6dgi" path="res://scenes/particles/particles_thrust.tscn" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://cri1cx0nhf7cj" path="res://audio/sfx_thrust.wav" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://7nryn2vgjl4c" path="res://audio/sfx_shoot.wav" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://dqijtdqs51186" path="res://scenes/components/component_take_damage.tscn" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
 radius = 11.045361
@@ -28,6 +29,9 @@ position = Vector2(-8, 0)
 
 [node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_qhqgy")]
 COMPONENT_PARENT = NodePath("..")
+
+[node name="component_take_damage" parent="." node_paths=PackedStringArray("PARENT") instance=ExtResource("6_tuyoq")]
+PARENT = NodePath("..")
 
 [node name="sfx_thrust" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_dqkch")

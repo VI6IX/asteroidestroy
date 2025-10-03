@@ -18,7 +18,7 @@ uv = PackedVector2Array(0, -8, 24.000015, -8, 24.000015, 8.000002, 0, 8.000002)
 position = Vector2(12, -0.5)
 shape = SubResource("RectangleShape2D_h1aey")
 
-[node name="WrapComponent" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_y25gk")]
+[node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_y25gk")]
 COMPONENT_PARENT = NodePath("..")
 
 [node name="Timer" type="Timer" parent="."]
