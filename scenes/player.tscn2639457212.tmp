@@ -22,6 +22,13 @@ polygon = PackedVector2Array(64.010124, -0.004208574, -55.98988, -55.989937, -39
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rnjyy")
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+polygon = PackedVector2Array(11, 0, -10, -11, -7, 0, -10, 11)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(22, 0)
 
@@ -40,11 +47,8 @@ stream = ExtResource("4_dqkch")
 [node name="sfx_shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qlg0r")
 
-[node name="component_take_damage" parent="." node_paths=PackedStringArray("PARENT") instance=ExtResource("6_tuyoq")]
+[node name="component_take_damage" parent="." instance=ExtResource("6_tuyoq")]
 position = Vector2(-41.978634, -90.62943)
-collision_layer = 2
-collision_mask = 4
-PARENT = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="component_take_damage"]
 polygon = PackedVector2Array(53.978634, 90.62943, 31.978634, 79.62943, 34.978634, 90.62943, 31.978634, 101.62943)

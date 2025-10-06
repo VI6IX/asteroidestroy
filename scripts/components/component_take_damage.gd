@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var PARENT : Node2D;
-@export var PARENT_COLLISION : Area2D;
 
-func _ready() -> void:
-	pass
+func _on_area_entered(area: Area2D) -> void:
+	print(str(PARENT.name) + " has collided with " + str(area.name));
+	PARENT.queue_free();
