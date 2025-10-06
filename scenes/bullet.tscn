@@ -1,27 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbl1l66gwby0o"]
+[gd_scene load_steps=5 format=3 uid="uid://cbl1l66gwby0o"]
 
 [ext_resource type="Script" uid="uid://cscpu0h2pvry6" path="res://scripts/bullet.gd" id="1_mkf8s"]
-[ext_resource type="PackedScene" uid="uid://dqijtdqs51186" path="res://scenes/components/component_take_damage.tscn" id="2_eoqba"]
 [ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="2_y25gk"]
 [ext_resource type="PackedScene" uid="uid://dvpunn86d3pwq" path="res://scenes/particles/particles_explosion.tscn" id="3_l5glv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoqba"]
-size = Vector2(24, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1aey"]
 size = Vector2(24, 11)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_mkf8s")
-
-[node name="component_take_damage" parent="." node_paths=PackedStringArray("PARENT") instance=ExtResource("2_eoqba")]
-collision_layer = 8
-collision_mask = 4
-PARENT = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="component_take_damage"]
-position = Vector2(12, -0.5)
-shape = SubResource("RectangleShape2D_eoqba")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(0, -5, 24, -5, 24, 4, 0, 4)

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqijtdqs51186"]
-
-[ext_resource type="Script" uid="uid://ba8d8mispw2af" path="res://scripts/components/component_take_damage.gd" id="1_p620m"]
-
-[node name="component_take_damage" type="Area2D"]
-script = ExtResource("1_p620m")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0df7pwpghk5t"]
+[gd_scene load_steps=2 format=3 uid="uid://c0df7pwpghk5t"]
 
 [ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroid.gd" id="1_akfqu"]
-[ext_resource type="PackedScene" uid="uid://dqijtdqs51186" path="res://scenes/components/component_take_damage.tscn" id="2_6mo6b"]
 
 [node name="Asteroid" type="CharacterBody2D"]
 script = ExtResource("1_akfqu")
@@ -17,15 +16,6 @@ polygon = PackedVector2Array(-68, 56, -91, -22, -44, -81, 71, -68, 92, 28, 66, 6
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(4, -11)
 rect = Rect2(-92, -78, 185, 165)
-
-[node name="component_take_damage" parent="." node_paths=PackedStringArray("PARENT") instance=ExtResource("2_6mo6b")]
-collision_layer = 4
-collision_mask = 10
-PARENT = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="component_take_damage"]
-position = Vector2(4, -9)
-polygon = PackedVector2Array(-46, -81, 71, -68, 93, 29, 67, 65, -17, 85, -70, 58, -94, -21)
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
