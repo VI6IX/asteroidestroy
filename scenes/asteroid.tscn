@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0df7pwpghk5t"]
+[gd_scene load_steps=3 format=3 uid="uid://c0df7pwpghk5t"]
 
 [ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroid.gd" id="1_akfqu"]
+[ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="2_6mo6b"]
 
 [node name="Asteroid" type="CharacterBody2D"]
 script = ExtResource("1_akfqu")
+
+[node name="component_damage" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_6mo6b")]
+parent = NodePath("..")
+health = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="component_damage"]
+polygon = PackedVector2Array(73, -77, -41, -89, -88, -30, -65, 49, -12, 74, 70, 55, 96, 19)
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(91, 19, 70, -72, -39, -84, -83, -29, -61, 45, -12, 70, 67, 51)

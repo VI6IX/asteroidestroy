@@ -4,7 +4,18 @@ extends Area2D
 @export var health : int;
 
 signal has_collided
+signal health_depleted
 
 func contact_damage(area: Area2D) -> void:
 	print(str(parent.name) + " has collided with " + str(area.name));
 	has_collided.emit();
+	deplete_health();
+
+func deplete_health():
+	if health > 0:
+		print(str(parent.name) + "'s HEALTH has been reduced to " + str(health));
+		health -= 1;
+		health_depleted.emit();
+	else:
+		print(str(parent.name) + "'s HEALTH is zero, cannot be depleted further.");
+		return;
