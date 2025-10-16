@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://23cbls1yy4dw"]
+
+[ext_resource type="Script" uid="uid://be4dninlkdkol" path="res://scripts/components/component_damage.gd" id="1_db1ib"]
+
+[node name="component_damage" type="Area2D"]
+script = ExtResource("1_db1ib")
+
+[connection signal="area_entered" from="." to="." method="contact_damage"]
