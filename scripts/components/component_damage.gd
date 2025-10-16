@@ -14,8 +14,11 @@ func contact_damage(area: Area2D) -> void:
 func deplete_health():
 	if health > 0:
 		health -= 1;
-		print(str(parent.name) + "'s HEALTH has been reduced to " + str(health));
+		print(str(parent.name) + "'s HEALTH has been reduced to " + str(get_health_value()));
 		health_depleted.emit();
 	else:
 		#print(str(parent.name) + "'s HEALTH is zero, cannot be depleted further.");
 		return;
+
+func get_health_value():
+	return health;
