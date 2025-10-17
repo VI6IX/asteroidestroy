@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="2_6mo6b"]
 
 [node name="Asteroid" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_akfqu")
 
 [node name="component_damage" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_6mo6b")]
