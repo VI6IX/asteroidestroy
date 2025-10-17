@@ -25,7 +25,7 @@ shape = SubResource("CircleShape2D_rnjyy")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(22, 0)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="shootTimer" type="Timer" parent="."]
 
 [node name="particles_thrust" parent="." instance=ExtResource("3_qhqgy")]
 unique_name_in_owner = true
@@ -49,5 +49,5 @@ health = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="component_damage"]
 polygon = PackedVector2Array(11, 0, -10, -11, -7, 0, -10, 11)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="health_depleted" from="component_damage" to="." method="_on_component_damage_health_depleted"]

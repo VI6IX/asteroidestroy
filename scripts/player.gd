@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var Marker : Marker2D = $Marker2D;
-@onready var timer : Timer = $Timer;
+@onready var shootTimer : Timer = $shootTimer;
 @onready var component_damage : Node2D = $component_damage;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
 @onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
@@ -57,10 +57,10 @@ func shoot() -> void:
 	if Input.is_action_pressed("shoot") and can_shoot == true:
 		instantiate_bullet();
 		can_shoot = false;
-		timer.start(FIRE_RATE);
+		shootTimer.start(FIRE_RATE);
 
 func _ready() -> void:
-	timer.wait_time = FIRE_RATE;
+	shootTimer.wait_time = FIRE_RATE;
 
 func _on_component_damage_health_depleted() -> void:
 	print("Player has received damage.");
@@ -75,5 +75,5 @@ func _process(delta: float) -> void:
 	shoot();
 	move_and_slide();
 
-func _on_timer_timeout() -> void:
+func _on_shoot_timer_timeout() -> void:
 	can_shoot = true;
