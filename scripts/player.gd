@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var Marker : Marker2D = $Marker2D;
 @onready var timer : Timer = $Timer;
+@onready var component_damage : Node2D = $component_damage;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
 @onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
 @onready var sfx_shoot : AudioStreamPlayer2D = $sfx_shoot;
@@ -60,6 +61,12 @@ func shoot() -> void:
 
 func _ready() -> void:
 	timer.wait_time = FIRE_RATE;
+
+func _on_component_damage_health_depleted() -> void:
+	print("Player has received damage.");
+	# If component_damage.health > 0 : handle respawn at world origin
+	
+	# else: handle game over
 
 func _process(delta: float) -> void:
 	pan(delta);
