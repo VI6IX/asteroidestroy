@@ -27,6 +27,9 @@ position = Vector2(22, 0)
 
 [node name="shootTimer" type="Timer" parent="."]
 
+[node name="respawnTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="particles_thrust" parent="." instance=ExtResource("3_qhqgy")]
 unique_name_in_owner = true
 position = Vector2(-8, 0)
@@ -50,4 +53,5 @@ health = 3
 polygon = PackedVector2Array(11, 0, -10, -11, -7, 0, -10, 11)
 
 [connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="health_depleted" from="component_damage" to="." method="_on_component_damage_health_depleted"]
