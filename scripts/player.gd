@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var Marker : Marker2D = $Marker2D;
 @onready var shootTimer : Timer = $shootTimer;
+@onready var component_damage : Node2D = $component_damage;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
 @onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
 @onready var sfx_shoot : AudioStreamPlayer2D = $sfx_shoot;
@@ -15,6 +16,7 @@ extends CharacterBody2D
 
 var can_shoot : bool = true;
 var can_respawn : bool = false;
+var LIVES : int = 0;
 
 func pan(delta) -> void:
 	var PAN_DIRECTION : float = 0;
@@ -63,11 +65,20 @@ func _ready() -> void:
 	shootTimer.wait_time = FIRE_RATE;
 
 func _process(delta: float) -> void:
+	LIVES = component_damage.get_health_value();
+	
 	pan(delta);
 	thrust(delta);
 	decelerate();
 	shoot();
 	move_and_slide();
-	
+
+
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true;
+
+func _on_component_damage_health_depleted() -> void:
+	can_respawn = true;
+
+func get_health():
+	return LIVES;
