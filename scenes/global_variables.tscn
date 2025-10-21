@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://b48jpdyqlvpts" path="res://scripts/global_variables.gd" id="1_m5i73"]
 
-[node name="Asteroid Counter" type="Node"]
+[node name="Global Variables" type="Node"]
 script = ExtResource("1_m5i73")
