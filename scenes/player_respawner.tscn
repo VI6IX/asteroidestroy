@@ -6,3 +6,6 @@
 script = ExtResource("1_38w6q")
 
 [node name="respawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]

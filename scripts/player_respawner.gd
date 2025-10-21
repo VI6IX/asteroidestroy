@@ -5,16 +5,18 @@ extends Node2D
 
 @onready var LIVES : int;
 
-func _process(_delta: float) -> void:
-	LIVES = GLOBAL_VARIABLES.PLAYER_LIVES;
+func handle_respawn():
 	if player.can_respawn == true and LIVES != 0:
 		print("PLAYER CAN RESPAWN! | " + str(LIVES) + " LIVES");
 		player.can_respawn = false;
 		respawnTimer.start();
 	elif LIVES == 0:
-		player.can_respawn = false;
 		print("GAME OVER!");
 		return;
 
+func _process(_delta: float) -> void:
+	LIVES = GLOBAL_VARIABLES.PLAYER_LIVES;
+	handle_respawn();
+
 func _on_respawn_timer_timeout() -> void:
-	print("PLAYER RESPAWN");
+	print("PLAYER RESPAWNED");
