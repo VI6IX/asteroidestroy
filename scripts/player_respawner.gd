@@ -1,13 +1,21 @@
 extends Node2D
 
 @export var player : CharacterBody2D;
+@onready var respawnTimer : Timer = $respawnTimer;
+
+@onready var LIVES : int;
 
 func _process(_delta: float) -> void:
-	if player.can_respawn == true and player.get_health() != 0:
+	LIVES = player.get_health();
+	if player.can_respawn == true and LIVES != 0:
+		print("PLAYER CAN RESPAWN!");
+		print(LIVES);
 		player.can_respawn = false;
-		print("player can respawn");
-		print(str(player.can_respawn))
-	elif player.get_health() == 0:
+		respawnTimer.start();
+	elif LIVES == 0:
 		print("GAME OVER!");
 	else:
 		return;
+
+func _on_respawn_timer_timeout() -> void:
+	print("PLAYER RESPAWN");

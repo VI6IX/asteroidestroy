@@ -16,7 +16,7 @@ extends CharacterBody2D
 
 var can_shoot : bool = true;
 var can_respawn : bool = false;
-var LIVES : int = 0;
+var LIVES : int = GLOBAL_VARIABLES.PLAYER_LIVES;
 
 func pan(delta) -> void:
 	var PAN_DIRECTION : float = 0;
@@ -65,19 +65,18 @@ func _ready() -> void:
 	shootTimer.wait_time = FIRE_RATE;
 
 func _process(delta: float) -> void:
-	LIVES = component_damage.get_health_value();
-	
+	LIVES = GLOBAL_VARIABLES.PLAYER_LIVES;
 	pan(delta);
 	thrust(delta);
 	decelerate();
 	shoot();
 	move_and_slide();
 
-
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true;
 
 func _on_component_damage_health_depleted() -> void:
+	GLOBAL_VARIABLES.PLAYER_LIVES -= 1;
 	can_respawn = true;
 
 func get_health():
