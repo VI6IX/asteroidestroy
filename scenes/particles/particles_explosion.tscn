@@ -8,6 +8,7 @@ point_count = 2
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
+amount = 16
 one_shot = true
 explosiveness = 1.0
 particle_flag_align_y = true
