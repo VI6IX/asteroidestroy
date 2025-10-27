@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var PLAYER := $"../Player"
-@onready var ASTEROID := preload("res://scenes/asteroid.tscn");
+@onready var ASTEROID := preload("res://scenes/asteroid_big.tscn");
 @onready var SPAWN_LOCATION := $SpawnPath/SpawnLocation
 @onready var TARGET_POSITION := $TargetPath/TargetPosition
 @onready var TIMER : Timer = $Timer;

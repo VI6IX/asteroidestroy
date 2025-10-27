@@ -9,12 +9,10 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	COMPONENT_WRAP.can_wrap = false;
-	print(str(COMPONENT_WRAP.can_wrap));
 
-func _process(delta: float) -> void:
-	if velocity.length() < MAX_SPEED:
-		velocity += transform.x * SPEED * delta;
-	else:
+func _process(_delta: float) -> void:
+	velocity += transform.x * SPEED;
+	if velocity.length() >= MAX_SPEED:
 		velocity = velocity.limit_length(MAX_SPEED);
 	move_and_slide();
 

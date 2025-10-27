@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0df7pwpghk5t"]
+
+[ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroid.gd" id="1_e88pg"]
+[ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="2_5ah36"]
+[ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="3_unc20"]
+
+[node name="BIG Asteroid" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_e88pg")
+
+[node name="component_damage" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_5ah36")]
+collision_layer = 4
+collision_mask = 10
+parent = NodePath("..")
+health = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="component_damage"]
+polygon = PackedVector2Array(73, -77, -41, -89, -88, -30, -65, 49, -12, 74, 70, 55, 96, 19)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(91, 19, 70, -72, -39, -84, -83, -29, -61, 45, -12, 70, 67, 51)
+closed = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(3, -8)
+polygon = PackedVector2Array(-68, 56, -91, -22, -44, -81, 71, -68, 92, 28, 66, 63, -15, 83)
+
+[node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("3_unc20")]
+COMPONENT_PARENT = NodePath("..")
+
+[node name="wrap_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="wrap_timer" to="." method="_on_wrap_timer_timeout"]
