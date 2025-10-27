@@ -49,8 +49,8 @@ func decelerate():
 
 func instantiate_bullet():
 	var bullet_instance = BULLET.instantiate();
-	sfx_shoot.set_pitch_scale(randf_range(0.8, 1.5));
-	sfx_shoot.set_volume_db(randf_range(-30, -10));
+	sfx_shoot.set_pitch_scale(randf_range(0.8, 1));
+	sfx_shoot.set_volume_db(randf_range(-10, -5));
 	sfx_shoot.play();
 	owner.add_child(bullet_instance);
 	bullet_instance.transform = Marker.global_transform;

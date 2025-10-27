@@ -3,10 +3,11 @@ extends Node2D
 @export var player : CharacterBody2D;
 @onready var respawnTimer : Timer = $respawnTimer;
 @onready var particles_explosion : Node2D = %particles_explosion.get_child(0);
-
+@onready var sfx_explosion : AudioStreamPlayer2D = %sfx_explosion;
 @onready var LIVES : int;
 
 var is_vulnerable = true;
+var game_over = false;
 
 func handle_respawn():
 	if player.can_respawn == true and is_vulnerable == true and LIVES != 0:
@@ -17,17 +18,18 @@ func handle_respawn():
 		deactivate_player();
 		
 		respawnTimer.start();
-	elif LIVES == 0:
+	elif LIVES <= 0:
+		player.can_respawn = false;
+		game_over = true;
 		print("GAME OVER!");
-		player.set_process(false);
-		player.visible = false;
-		particles_explosion.position = player.position;
-		particles_explosion.set_emitting(true);
-		return;
+		deactivate_player();
+		return
 
 func deactivate_player():
 	player.set_process(false);
 	player.visible = false;
+	sfx_explosion.play();
+	sfx_explosion.set_pitch_scale(randf_range(0.8, 1.5));
 	particles_explosion.position = player.position;
 	particles_explosion.set_emitting(true);
 
@@ -41,7 +43,10 @@ func activate_player():
 
 func _process(_delta: float) -> void:
 	LIVES = GLOBAL_VARIABLES.PLAYER_LIVES;
-	handle_respawn();
+	if game_over == false:
+		handle_respawn();
+	else:
+		return;
 
 func _on_respawn_timer_timeout() -> void:
 	activate_player();
