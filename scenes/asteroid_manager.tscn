@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cobe1su6w6kvs"]
 
-[ext_resource type="Script" uid="uid://c3p76xktvxtn8" path="res://scripts/asteroid_spawner.gd" id="1_l5w2k"]
+[ext_resource type="Script" uid="uid://c3p76xktvxtn8" path="res://scripts/asteroid_manager.gd" id="1_l5w2k"]
 
 [sub_resource type="Curve2D" id="Curve2D_l5w2k"]
 _data = {
