@@ -9,5 +9,4 @@ func _on_timer_timeout() -> void:
 	queue_free();
 
 func _on_component_damage_has_collided() -> void:
-	print("BULLET COLLIDED WITH ASTEROID");
 	queue_free();

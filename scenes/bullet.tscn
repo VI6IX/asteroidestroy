@@ -12,8 +12,8 @@ size = Vector2(24, 11)
 size = Vector2(24, 11)
 
 [node name="Bullet" type="Area2D"]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_mkf8s")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
