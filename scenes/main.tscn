@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3ywxnuywqkas"]
 
 [ext_resource type="Texture2D" uid="uid://bwjh8jchtqmkd" path="res://sprites/Checkers.jpg" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://da4a51vt5oopy" path="res://scenes/player.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://cobe1su6w6kvs" path="res://scenes/asteroid_spawner.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://duy3hthtus1e" path="res://scenes/player_respawner.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b04q4t20kmm12" path="res://scenes/asteroid_medium.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://l5loutid46i1" path="res://scenes/asteroid_small.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://da4a51vt5oopy" path="res://scenes/player/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cobe1su6w6kvs" path="res://scenes/asteroids/asteroid_spawner.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://duy3hthtus1e" path="res://scenes/player/player_respawner.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b04q4t20kmm12" path="res://scenes/asteroids/asteroid_medium.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://l5loutid46i1" path="res://scenes/asteroids/asteroid_small.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
 
