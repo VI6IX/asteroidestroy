@@ -12,8 +12,6 @@ func _ready() -> void:
 		#timer.wait_time = 2;
 	#else:
 		#timer.wait_time = wait_time;
-	print(str(COMPONENT_PARENT.name) + " ENTERED SCENE. TIMER STARTED.")
-	print(wait_time)
 	timer.start(wait_time);
 
 func horizontal_wrap():
@@ -38,4 +36,3 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	can_wrap = true;
-	print("TIMER ENDED; " + str(COMPONENT_PARENT.name) + " CAN WRAP");
