@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b04q4t20kmm12"]
+[gd_scene load_steps=4 format=3 uid="uid://dufphfcexditk"]
 
-[ext_resource type="Script" uid="uid://c8n0yb2qxn3nu" path="res://scripts/asteroids/asteroid_medium.gd" id="1_pofgt"]
+[ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroids/asteroid.gd" id="1_ywgay"]
 [ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="2_vv68d"]
 [ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="3_si1u6"]
 
 [node name="MEDIUM Asteroid" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 8
-script = ExtResource("1_pofgt")
+script = ExtResource("1_ywgay")
+SPEED = 300.0
 
 [node name="component_damage" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_vv68d")]
 collision_layer = 4
@@ -30,3 +31,4 @@ polygon = PackedVector2Array(-70, 54, -90, -24, -44, -80, 70, -66, 90, 30, 66, 6
 
 [node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("3_si1u6")]
 COMPONENT_PARENT = NodePath("..")
+wait_time = 0.1

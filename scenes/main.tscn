@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://da4a51vt5oopy" path="res://scenes/player/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cobe1su6w6kvs" path="res://scenes/asteroids/asteroid_spawner.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://duy3hthtus1e" path="res://scenes/player/player_respawner.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b04q4t20kmm12" path="res://scenes/asteroids/asteroid_medium.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dufphfcexditk" path="res://scenes/asteroids/asteroid_medium.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://l5loutid46i1" path="res://scenes/asteroids/asteroid_small.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
@@ -28,7 +28,7 @@ zoom = Vector2(0.5, 0.5)
 player = NodePath("../Player")
 
 [node name="MEDIUM Asteroid" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(0, 321)
+position = Vector2(-76, 167)
 
-[node name="MEDIUM Asteroid2" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(340, 186)
+[node name="SMALL Asteroid" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(-96, 414)

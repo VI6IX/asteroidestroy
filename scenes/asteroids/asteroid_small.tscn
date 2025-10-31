@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://l5loutid46i1"]
 
-[ext_resource type="Script" uid="uid://cg8arqt36au5g" path="res://scripts/asteroids/asteroid_small.gd" id="1_x7wxb"]
+[ext_resource type="Script" uid="uid://cxli1nn0cc0o4" path="res://scripts/asteroids/asteroid.gd" id="1_aw4ng"]
 [ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="2_qo6y1"]
 [ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="3_kci4s"]
 
 [node name="SMALL Asteroid" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 8
-script = ExtResource("1_x7wxb")
+script = ExtResource("1_aw4ng")
 
 [node name="component_damage" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_qo6y1")]
 collision_layer = 4
@@ -31,10 +31,4 @@ polygon = PackedVector2Array(-70, 54, -88, -24, -44, -80, 72, -64, 92, 28, 66, 6
 
 [node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("3_kci4s")]
 COMPONENT_PARENT = NodePath("..")
-
-[node name="wrap_timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="wrap_timer" to="." method="_on_wrap_timer_timeout"]
+wait_time = 0.1

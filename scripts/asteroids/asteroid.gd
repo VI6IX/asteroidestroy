@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var SCREEN := get_viewport_rect();
 @onready var COMPONENT_WRAP := $component_wrap;
 
-@export var SPEED : float = 300;
+@export var SPEED : float = 200;
 
 func _process(_delta: float) -> void:
 	velocity += transform.x * SPEED;

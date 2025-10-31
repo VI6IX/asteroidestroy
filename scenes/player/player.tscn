@@ -36,6 +36,7 @@ position = Vector2(-8, 0)
 
 [node name="component_wrap" parent="." node_paths=PackedStringArray("COMPONENT_PARENT") instance=ExtResource("2_qhqgy")]
 COMPONENT_PARENT = NodePath("..")
+wait_time = 0.1
 
 [node name="sfx_thrust" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_dqkch")
