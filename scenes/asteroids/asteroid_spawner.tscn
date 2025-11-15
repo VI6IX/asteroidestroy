@@ -14,7 +14,7 @@ _data = {
 }
 point_count = 5
 
-[node name="Asteroid Spawner" type="Node2D"]
+[node name="Asteroid Spawner" type="Node2D" groups=["AsteroidSpawner"]]
 script = ExtResource("1_l5w2k")
 
 [node name="Timer" type="Timer" parent="."]

@@ -75,6 +75,6 @@ func _process(delta: float) -> void:
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true;
 
-func _on_component_damage_health_depleted() -> void:
+func _on_component_damage_health_depleted(_parent) -> void:
 	GLOBAL_VARIABLES.PLAYER_LIVES -= 1;
 	can_respawn = true;

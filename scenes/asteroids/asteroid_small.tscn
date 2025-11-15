@@ -8,6 +8,7 @@
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_aw4ng")
+size = 2
 
 [node name="component_damage" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_qo6y1")]
 collision_layer = 4
