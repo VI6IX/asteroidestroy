@@ -16,7 +16,8 @@ func spawn_large_asteroid():
 	asteroid_instance.look_at(TARGET_POSITION.global_position);
 	add_child(asteroid_instance);
 
-func _on_asteroid_destroyed(asteroid):
+func _on_asteroid_destroyed(asteroid): # called on asteroid's component damage health_depleted signal
+	# the asteroid parameter is the health_depleted's argument (the component's parent)
 	var queued_asteroid = null
 	
 	if asteroid.size == asteroid.ASTEROID_SIZE.LARGE:
@@ -24,7 +25,6 @@ func _on_asteroid_destroyed(asteroid):
 	elif asteroid.size == asteroid.ASTEROID_SIZE.MEDIUM:
 		queued_asteroid = SMALL_ASTEROID
 	else:
-		# Small asteroids don't spawn anything
 		despawn(asteroid)
 		return
 	

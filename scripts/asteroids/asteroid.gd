@@ -11,6 +11,7 @@ func _ready() -> void:
 	component_damage.health_depleted.connect(asteroid_spawner._on_asteroid_destroyed);
 	# Connects the asteroid's component_damage's health_depleted signal to the asteroid spawner's
 	# _on_asteroid_destroyed() function
+	# In short, _on_asteroid_destroyed() gets called when the health_depleted signal is emitted.
 
 func _process(_delta: float) -> void:
 	velocity += transform.x * SPEED;

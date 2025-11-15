@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="2_1n8m0"]
 [ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="3_guy5t"]
 
-[node name="BIG Asteroid" type="CharacterBody2D"]
+[node name="LARGE Asteroid" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_q4ko2")
