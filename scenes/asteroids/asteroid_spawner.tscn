@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cobe1su6w6kvs"]
+[gd_scene load_steps=5 format=3 uid="uid://cobe1su6w6kvs"]
 
 [ext_resource type="Script" uid="uid://c3p76xktvxtn8" path="res://scripts/asteroids/asteroid_spawner.gd" id="1_l5w2k"]
+[ext_resource type="AudioStream" uid="uid://cirkugqpi15qc" path="res://audio/sfx_destruction.wav" id="2_rvfsl"]
 
 [sub_resource type="Curve2D" id="Curve2D_l5w2k"]
 _data = {
@@ -35,5 +36,8 @@ curve = SubResource("Curve2D_yafkd")
 [node name="TargetPosition" type="PathFollow2D" parent="TargetPath"]
 position = Vector2(-384, 0)
 rotation = -0.4636476
+
+[node name="sfx_destruction" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_rvfsl")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
