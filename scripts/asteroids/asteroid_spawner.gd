@@ -22,6 +22,7 @@ func spawn_large_asteroid():
 func _on_asteroid_destroyed(asteroid): # called on asteroid's component damage health_depleted signal
 	# the asteroid parameter is the health_depleted's argument (the component's parent)
 	var queued_asteroid = null
+	var incremented_rotation = asteroid.rotation
 	
 	if asteroid.size == asteroid.ASTEROID_SIZE.LARGE:
 		queued_asteroid = MEDIUM_ASTEROID
@@ -37,10 +38,12 @@ func _on_asteroid_destroyed(asteroid): # called on asteroid's component damage h
 		despawn(asteroid)
 		return
 	
+		
 	for i in 2:
 		var queued_instance = queued_asteroid.instantiate()
+		incremented_rotation += 0.5
+		queued_instance.rotation = incremented_rotation;
 		queued_instance.position = asteroid.position
-		queued_instance.rotation = asteroid.rotation + randf_range(-0.6, 0.6)
 		call_deferred("add_child", queued_instance);
 		GLOBAL_VARIABLES.asteroid_count += 1
 	
