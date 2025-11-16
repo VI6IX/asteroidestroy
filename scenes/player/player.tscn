@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://da4a51vt5oopy"]
+[gd_scene load_steps=7 format=3 uid="uid://da4a51vt5oopy"]
 
 [ext_resource type="Script" uid="uid://dthepradiqjj3" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://ea2vv836t3ay" path="res://scenes/components/component_wrap.tscn" id="2_qhqgy"]
@@ -6,9 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cri1cx0nhf7cj" path="res://audio/sfx_thrust.wav" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://dmqom65ctas1l" path="res://audio/sfx_shoot.wav" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://23cbls1yy4dw" path="res://scenes/components/component_damage.tscn" id="6_tuyoq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rnjyy"]
-radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -19,15 +16,16 @@ script = ExtResource("1_g2els")
 scale = Vector2(0.18548387, 0.2129355)
 polygon = PackedVector2Array(64.010124, -0.004208574, -55.98988, -55.989937, -16.07244, -0.028143048, -55.996056, 56.050755)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rnjyy")
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(22, 0)
 
 [node name="shootTimer" type="Timer" parent="."]
 
 [node name="respawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="invulnerabilityTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="particles_thrust" parent="." instance=ExtResource("3_qhqgy")]
@@ -56,4 +54,5 @@ polygon = PackedVector2Array(13, 0, -8, -11, -1, 0, -8, 11)
 
 [connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="invulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]
 [connection signal="health_depleted" from="component_damage" to="." method="_on_component_damage_health_depleted"]

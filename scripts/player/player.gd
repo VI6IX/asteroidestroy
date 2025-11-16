@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 @onready var Marker : Marker2D = $Marker2D;
 @onready var shootTimer : Timer = $shootTimer;
+@onready var invulnerabilityTimer: Timer = $invulnerabilityTimer
 @onready var component_damage : Node2D = $component_damage;
 @onready var particles_thrust : Node2D = %particles_thrust.get_child(0);
 @onready var sfx_thrust : AudioStreamPlayer2D = $sfx_thrust;
 @onready var sfx_shoot : AudioStreamPlayer2D = $sfx_shoot;
 @onready var BULLET := preload("res://scenes/bullet.tscn");
+@onready var hitbox : CollisionPolygon2D = $component_damage/CollisionPolygon2D
+
 
 @export var PAN_SPEED : float = 5;
 @export var ACCELERATION : Vector2;
@@ -61,6 +64,15 @@ func shoot() -> void:
 		can_shoot = false;
 		shootTimer.start(FIRE_RATE);
 
+func enable_vulnerability():
+	hitbox.disabled = true;
+	modulate = Color(1, 1, 1, 0.25)
+	invulnerabilityTimer.start();
+
+func disable_vulnerability():
+	hitbox.disabled = false;
+	modulate = Color(1, 1, 1, 1)
+
 func _ready() -> void:
 	can_respawn = false;
 	shootTimer.wait_time = FIRE_RATE;
@@ -78,3 +90,6 @@ func _on_shoot_timer_timeout() -> void:
 func _on_component_damage_health_depleted(_parent) -> void:
 	GLOBAL_VARIABLES.PLAYER_LIVES -= 1;
 	can_respawn = true;
+
+func _on_invulnerability_timer_timeout() -> void:
+	disable_vulnerability();

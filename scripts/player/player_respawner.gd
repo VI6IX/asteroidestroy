@@ -10,7 +10,7 @@ var is_vulnerable = true;
 var game_over = false;
 
 func handle_respawn():
-	if player.can_respawn == true and is_vulnerable == true and LIVES != 0:
+	if player.can_respawn == true and LIVES != 0:
 		print("PLAYER CAN RESPAWN! | " + str(LIVES) + " LIVES");
 		player.can_respawn = false;
 		is_vulnerable = false;
@@ -26,6 +26,7 @@ func handle_respawn():
 		return
 
 func deactivate_player():
+	player.enable_vulnerability();
 	player.set_process(false);
 	player.visible = false;
 	sfx_explosion.play();
@@ -34,7 +35,6 @@ func deactivate_player():
 	particles_explosion.set_emitting(true);
 
 func activate_player():
-	is_vulnerable = true;
 	player.visible = true;
 	player.velocity = Vector2.ZERO;
 	player.position = Vector2.ZERO;
