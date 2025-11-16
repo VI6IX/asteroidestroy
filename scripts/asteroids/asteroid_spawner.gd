@@ -1,18 +1,18 @@
 extends Node2D
 
-@onready var PLAYER := $"../Player"
 @onready var LARGE_ASTEROID := preload("res://scenes/asteroids/asteroid_large.tscn");
 @onready var MEDIUM_ASTEROID := preload("res://scenes/asteroids/asteroid_medium.tscn");
 @onready var SMALL_ASTEROID := preload("res://scenes/asteroids/asteroid_small.tscn");
 @onready var SPAWN_LOCATION := $SpawnPath/SpawnLocation
 @onready var TARGET_POSITION := $TargetPath/TargetPosition
-@onready var TIMER : Timer = $Timer;
+@onready var spawnTimer : Timer = $spawnTimer;
+@onready var asteroidTimer: Timer = %asteroidTimer
 @onready var sfx_destruction: AudioStreamPlayer2D = $sfx_destruction;
 @onready var particles_explosion: Node2D = $particles_explosion.get_child(0);
 
-@export var SMALL_SCORE : int = 200;
 @export var LARGE_SCORE : int = 50;
 @export var MEDIUM_SCORE : int = 100;
+@export var SMALL_SCORE : int = 200;
 
 func spawn_large_asteroid():
 	var asteroid_instance = LARGE_ASTEROID.instantiate();
@@ -61,7 +61,7 @@ func despawn(asteroid):
 	GLOBAL_VARIABLES.asteroid_count -= 1
 	asteroid.queue_free()
 
-func _on_timer_timeout() -> void:
+func _on_spawn_timer_timeout() -> void:
 	if GLOBAL_VARIABLES.asteroid_count < GLOBAL_VARIABLES.asteroid_limit:
 		#print("Asteroids can be instantiated.");
 		spawn_large_asteroid();
@@ -70,3 +70,7 @@ func _on_timer_timeout() -> void:
 	else:
 		#print("Asteroid limit reached: asteroids cannot be instantiated.");
 		return
+
+func _on_asteroid_timer_timeout() -> void:
+	print(str(GLOBAL_VARIABLES.asteroid_limit));
+	GLOBAL_VARIABLES.asteroid_limit += 2;
