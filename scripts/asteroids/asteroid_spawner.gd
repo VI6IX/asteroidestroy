@@ -10,7 +10,6 @@ extends Node2D
 @onready var sfx_destruction: AudioStreamPlayer2D = $sfx_destruction;
 @onready var particles_explosion: Node2D = $particles_explosion.get_child(0);
 
-
 @export var SMALL_SCORE : int = 200;
 @export var LARGE_SCORE : int = 50;
 @export var MEDIUM_SCORE : int = 100;

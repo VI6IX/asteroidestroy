@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3ywxnuywqkas"]
+[gd_scene load_steps=6 format=3 uid="uid://d3ywxnuywqkas"]
 
 [ext_resource type="Script" uid="uid://djf4r0l3w3qc8" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://da4a51vt5oopy" path="res://scenes/player/player.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cobe1su6w6kvs" path="res://scenes/asteroids/asteroid_spawner.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://duy3hthtus1e" path="res://scenes/player/player_respawner.tscn" id="4_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ciypjiiye1qd0" path="res://scenes/game_ui.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_iywne")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Game UI" parent="CanvasLayer" instance=ExtResource("5_iywne")]
 
 [node name="Player" parent="." instance=ExtResource("2_u5sy4")]
 

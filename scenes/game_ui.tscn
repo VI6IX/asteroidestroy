@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciypjiiye1qd0"]
+
+[ext_resource type="Script" uid="uid://bo7f03vrivr2o" path="res://scripts/game_ui.gd" id="1_yubou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojb23"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_yubou"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_rns2u"]
+font_size = 32
+
+[node name="Game UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yubou")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 600.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LIVES" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lives Text" type="Label" parent="MarginContainer/HBoxContainer/LIVES"]
+layout_mode = 2
+text = "LIVES"
+label_settings = SubResource("LabelSettings_ojb23")
+
+[node name="Lives Value" type="Label" parent="MarginContainer/HBoxContainer/LIVES"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LIVES"
+label_settings = SubResource("LabelSettings_ojb23")
+
+[node name="SCORE" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Score Text" type="Label" parent="MarginContainer/HBoxContainer/SCORE"]
+layout_mode = 2
+text = "SCORE"
+label_settings = SubResource("LabelSettings_yubou")
+horizontal_alignment = 2
+autowrap_mode = 1
+
+[node name="Score Value" type="Label" parent="MarginContainer/HBoxContainer/SCORE"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_rns2u")
+horizontal_alignment = 2
+autowrap_mode = 1
