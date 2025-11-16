@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3ywxnuywqkas"]
+
+[ext_resource type="Texture2D" uid="uid://bwjh8jchtqmkd" path="res://sprites/Checkers.jpg" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://da4a51vt5oopy" path="res://scenes/player/player.tscn" id="2_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cobe1su6w6kvs" path="res://scenes/asteroids/asteroid_spawner.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://duy3hthtus1e" path="res://scenes/player/player_respawner.tscn" id="4_0tnpc"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Placeholder_Background" type="Sprite2D" parent="."]
+modulate = Color(0.18039216, 0.18039216, 0.18039216, 1)
+texture_repeat = 2
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_p57ef")
+region_enabled = true
+region_rect = Rect2(1, 1, 300000, 300000)
+
+[node name="Player" parent="." instance=ExtResource("2_u5sy4")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Asteroid Spawner" parent="." instance=ExtResource("3_gee14")]
+
+[node name="Player Respawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_0tnpc")]
+player = NodePath("../Player")

@@ -11,13 +11,20 @@ config_version=5
 [application]
 
 config/name="asteroidestroy"
-run/main_scene="uid://d3ywxnuywqkas"
+run/main_scene="uid://ddl20otjgln58"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
 [autoload]
 
 GLOBAL_VARIABLES="*res://scripts/_GLOBAL_VARIABLES.gd"
+
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/size/mode=4
+window/stretch/mode="canvas_items"
 
 [input]
 
