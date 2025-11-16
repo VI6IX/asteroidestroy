@@ -7,7 +7,8 @@ extends Node2D
 @onready var SPAWN_LOCATION := $SpawnPath/SpawnLocation
 @onready var TARGET_POSITION := $TargetPath/TargetPosition
 @onready var TIMER : Timer = $Timer;
-@onready var sfx_destruction: AudioStreamPlayer2D = $sfx_destruction
+@onready var sfx_destruction: AudioStreamPlayer2D = $sfx_destruction;
+@onready var particles_explosion: Node2D = $particles_explosion.get_child(0);
 
 
 @export var SMALL_SCORE : int = 200;
@@ -26,7 +27,11 @@ func _on_asteroid_destroyed(asteroid): # called on asteroid's component damage h
 	# the asteroid parameter is the health_depleted's argument (the component's parent)
 	var queued_asteroid = null
 	var incremented_rotation = asteroid.rotation
+	sfx_destruction.set_pitch_scale(randf_range(0.8, 1.2));
 	sfx_destruction.play();
+	particles_explosion.position = asteroid.position
+	particles_explosion.restart();
+	particles_explosion.set_emitting(true);
 	
 	if asteroid.size == asteroid.ASTEROID_SIZE.LARGE:
 		queued_asteroid = MEDIUM_ASTEROID
