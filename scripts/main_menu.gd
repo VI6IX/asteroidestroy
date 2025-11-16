@@ -6,6 +6,10 @@ extends Control
 func _ready() -> void:
 	quit_confirmation.visible = false;
 
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("escape"):
+		get_tree().quit();
+
 func _on_play_button_pressed() -> void:
 	print("PLAY BUTTON PRESSED")
 	get_tree().change_scene_to_file("res://scenes/game.tscn");
