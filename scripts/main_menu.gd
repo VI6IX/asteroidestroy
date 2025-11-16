@@ -1,7 +1,8 @@
-extends Control
+extends Node2D #main_menu.gd
 
-@onready var game_buttons := %"Game Buttons"
-@onready var quit_confirmation := %"Quit Confirmation"
+@onready var SCREEN_SIZE := get_viewport().get_visible_rect().size;
+@onready var game_buttons : VBoxContainer = %"Game Buttons"
+@onready var quit_confirmation : VBoxContainer = %"Quit Confirmation"
 
 func _ready() -> void:
 	quit_confirmation.visible = false;
@@ -22,3 +23,4 @@ func _on_yes_pressed() -> void:
 func _on_no_pressed() -> void:
 	quit_confirmation.visible = false;
 	game_buttons.visible = true;
+	pass # Replace with function body.

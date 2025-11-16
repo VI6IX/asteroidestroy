@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddl20otjgln58"]
+[gd_scene load_steps=7 format=3 uid="uid://ddl20otjgln58"]
 
-[ext_resource type="Script" uid="uid://daa1i3mdxfvkx" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="PackedScene" uid="uid://da4a51vt5oopy" path="res://scenes/player/player.tscn" id="3_wu84c"]
+[ext_resource type="Script" uid="uid://cd2x7412n5k5s" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.6, 0.6, 0.6, 0.33333334)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0, 0, 0, 0.33333334)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
-border_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0.33333334)
 corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0, 0, 0, 0.33333334)
 
 [sub_resource type="Theme" id="Theme_8ln24"]
 Button/colors/font_hover_pressed_color = Color(0.5529558, 0.5529555, 0.5529556, 1)
@@ -23,8 +25,11 @@ Label/font_sizes/font_size = 32
 Label/styles/normal = SubResource("StyleBoxFlat_8ln24")
 
 [node name="Main Menu" type="Node2D"]
+script = ExtResource("1_l6cm7")
 
-[node name="Control" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 top_level = true
 visibility_layer = 513
 layout_mode = 3
@@ -33,71 +38,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = SubResource("Theme_8ln24")
-script = ExtResource("1_l6cm7")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
 top_level = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -598.0
-offset_right = 1.8000488
-offset_bottom = 2.0
+offset_top = -400.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Game Buttons" type="VBoxContainer" parent="Control/CenterContainer"]
+[node name="Game Buttons" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(225, 25)
+custom_minimum_size = Vector2(225, 29)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Play Button" type="Button" parent="Control/CenterContainer/Game Buttons"]
+[node name="Play Button" type="Button" parent="CanvasLayer/Control/CenterContainer/Game Buttons"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "PLAY GAME"
 
-[node name="Quit Button" type="Button" parent="Control/CenterContainer/Game Buttons"]
+[node name="Quit Button" type="Button" parent="CanvasLayer/Control/CenterContainer/Game Buttons"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "QUIT GAME"
 
-[node name="Quit Confirmation" type="VBoxContainer" parent="Control/CenterContainer"]
+[node name="Quit Confirmation" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Text" type="Label" parent="Control/CenterContainer/Quit Confirmation"]
+[node name="Text" type="Label" parent="CanvasLayer/Control/CenterContainer/Quit Confirmation"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "ARE YOU SURE?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="Control/CenterContainer/Quit Confirmation"]
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/Quit Confirmation"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="YES" type="Button" parent="Control/CenterContainer/Quit Confirmation/Buttons"]
+[node name="YES" type="Button" parent="CanvasLayer/Control/CenterContainer/Quit Confirmation/Buttons"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "YES"
 
-[node name="NO" type="Button" parent="Control/CenterContainer/Quit Confirmation/Buttons"]
+[node name="NO" type="Button" parent="CanvasLayer/Control/CenterContainer/Quit Confirmation/Buttons"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "NO"
 
-[node name="Player" parent="." instance=ExtResource("3_wu84c")]
-rotation = -1.5707964
-
-[connection signal="pressed" from="Control/CenterContainer/Game Buttons/Play Button" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/Game Buttons/Quit Button" to="Control" method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/Quit Confirmation/Buttons/YES" to="Control" method="_on_yes_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/Quit Confirmation/Buttons/NO" to="Control" method="_on_no_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/Game Buttons/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/Game Buttons/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/Quit Confirmation/Buttons/YES" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/Quit Confirmation/Buttons/NO" to="." method="_on_no_pressed"]

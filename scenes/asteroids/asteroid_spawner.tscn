@@ -24,7 +24,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="SpawnPath" type="Path2D" parent="."]
-scale = Vector2(0.124, 0.116)
+scale = Vector2(3, 2.81)
 curve = SubResource("Curve2D_l5w2k")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
