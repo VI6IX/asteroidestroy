@@ -21,12 +21,11 @@ script = ExtResource("1_l5w2k")
 
 [node name="spawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
 autostart = true
 
 [node name="asteroidTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="SpawnPath" type="Path2D" parent="."]
